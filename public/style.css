@@ -10,17 +10,20 @@
     background-color: rgb(34, 32, 32);
   }
   
- 
+ .centered{
+  text-align: center;
+ }
   
   header {
-    background: rgb(13, 0, 37);
-    
+    /* background: rgb(13, 0, 37); */
+    margin:auto;
     color: #ccc;
     padding: 1.5rem 1rem;
+    max-width: fit-content;
     text-align: center;
     /* overflow: auto; */
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    /* border-top-left-radius: 15px;
+    border-top-right-radius: 15px; */
 
   }
   
@@ -28,41 +31,47 @@
     margin: auto;
     width: 500px;
     overflow: auto;
+    align-items: center;
+
     /* padding: 3rem 2rem; */
   }
   
-  #signUpForm {
+  #loginForm {
     /* padding: 3rem; */
-    padding-top: 0cms;
+    margin: auto;
+    align-content: center;
+    max-width: 600px;
+    min-width: 300px;
+    padding-top: 3rem;
     padding-left: 3rem;
     padding-right: 3rem;
     padding-bottom: 3rem;
     color: white;
     background-color: rgb(13, 0, 37);
     /* opacity: 70%;  */
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+    border-radius: 15px;
+    /* border-bottom-right-radius: 15px; */
   }
   
-  #signUpForm label {
+  #loginForm label {
     display: block;
   }
   
-  #signUpForm input[type='text'] {
+  /* #loginForm input[type='text'] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  } */
+  #loginForm input[type='email'] {
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
   }
-  #signUpForm input[type='email'] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  #signUpForm input[type='password'] {
+  #loginForm input[type='password'] {
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
@@ -84,6 +93,19 @@
   .btn:hover {
     background: #444;
   }
+  .btn-sm {
+    display: block;
+    width: 70%;
+    padding: 10px 15px;
+    border: 0;
+    background: #333;
+    color: #fff;
+    border-radius: 5px;
+    margin: 5px 0;
+    
+  }
+
+  
   
   .bg-dark {
     background: #333;

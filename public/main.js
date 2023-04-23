@@ -1,25 +1,31 @@
-document.getElementById('signUpForm').addEventListener('submit',addUser)
-const nameInput = document.getElementById('name');
+document.getElementById('loginForm').addEventListener('submit',userLogin)
 const emailInput = document.getElementById('email');
 const password = document.getElementById('password')
 
 
 
-async function addUser(e){
+async function userLogin(e){
     try{
         e.preventDefault();
         let obj ={
-            name:nameInput.value,
+            
             email:emailInput.value,
-            password:password.value
+            password: password.value
+            
         }
-        const response = await axios.post("http://localhost:3000/user/signup",obj)
-        if(response.data.errors[0].message==='email must be unique'){
-            alert('user already exists')
-        }
-        console.log(response);
+         const response = await axios.post("http://localhost:3000/user/login",obj)
+        
+         console.log(response.status)
+         if(response.status===201){
+            alert('User Login Successful')
+         }
+
+        //  console.log(response.headers)
+        
     }catch(err){
-        console.log(err)
+        
+        console.log(err
+            )
     }
 
 }
