@@ -15,7 +15,7 @@ async function addUser(e){
         }
         const response = await axios.post("http://localhost:3000/user/signup",obj)
         if(response.data.errors[0].message==='email must be unique'){
-            alert('User already exists')
+            alert('user already exists')
         }
         console.log(response);
     }catch(err){
