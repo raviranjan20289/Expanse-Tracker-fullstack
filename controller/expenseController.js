@@ -5,7 +5,7 @@ const Expense = require('../models/expenseModel')
 
 exports.getExpenses = async (req,res) => {
     try{
-        // console.log(req.user)
+        console.log(req.user)
         const expense= await req.user.getExpenses()
         return res.status(200).json({expenseData: expense})
     }catch(err){
