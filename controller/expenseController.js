@@ -3,11 +3,11 @@ const Expense = require('../models/expenseModel')
 
 
 
+
 exports.getExpenses = async (req,res) => {
     try{
-        console.log(req.user)
-        const expense= await req.user.getExpenses()
-        return res.status(200).json({expenseData: expense})
+        const data = await Expense.findAll()
+        res.json({expenseData: data})
     }catch(err){
         
         console.log(err)
@@ -16,20 +16,18 @@ exports.getExpenses = async (req,res) => {
 
 exports.postAddExpense = async (req,res) => {
     try{
-    console.log(req.user,'get rekt')
+    console.log(req)
     const item =req.body.item;
     const expense = req.body.expense;
     const category = req.body.category;
     const description = req.body.description
-    
-    const data = await req.user.createExpense({
+    const data = await Expense.create({
         item: item,
         expense: expense,
         category: category,
-        description: description,
-        
+        description: description
     })
-    return res.status(200).json({expenseData: data})
+    res.json({expenseData: data})
     }catch(err){
         console.log(err)
     }
