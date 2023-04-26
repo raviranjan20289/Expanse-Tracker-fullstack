@@ -53,7 +53,7 @@ exports.updateTransaction = async (req,res) => {
             const updateOrder= order.update({paymentId: payment_id, status:'SUCCESSFUL'})
             const updateUser = req.user.update({premiumUser:true})
             Promise.all([updateOrder,updateUser]).then(()=>{
-                return res.status(202).json({success:true, message:'Transaction Successful'})
+                return res.status(202).json({success:true, message:'Transaction SucceSsful'})
             }).catch(err=>{
                 throw new Error(JSON.stringify(err))} )
         }
