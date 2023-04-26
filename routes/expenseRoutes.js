@@ -8,6 +8,9 @@ const expenseController = require('../controller/expenseController');
 
 router.get('/',userAuth.authenticate,expenseController.getExpenses)
 
+router.get('/download',userAuth.authenticate,expenseController.downloadExpense)
+
+
 router.post('/addExpense',userAuth.authenticate, expenseController.postAddExpense)
 
 router.delete('/deleteExpense/:id',expenseController.deleteExpense)

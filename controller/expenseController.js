@@ -1,9 +1,9 @@
-const User = require('../models/userModel')
+const User = require('../models/user')
 const Expense = require('../models/expenseModel')
-const sequelize = require('../database')
+const sequelize = require('../utility/database')
 const History = require('../models/reportModel')
 const UserService = require('../services/userServices')
-const S3Service = require('../services/S3Services')
+const S3Service = require('../services/S3services')
 
 
 

@@ -31,6 +31,7 @@ const premiumRoutes = require('./routes/premiumRoutes');
 
 const forgotPassRoutes = require('./routes/forgotPassRoutes')
 
+const History =require('./models/reportModel')
 app.use('/user',signUpRoutes);
 
 app.use('/user',loginRoutes);
@@ -51,6 +52,9 @@ User.hasMany(Order);
 
 ForgotPass.belongsTo(User)
 User.hasMany(ForgotPass);
+
+History.belongsTo(User)
+User.hasMany(History);
 
 sequelize.sync()
 .then(()=>{
