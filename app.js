@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 
 const User = require('./models/user')
 const Expense = require('./models/expenseModel')
-
+const ForgotPass =require('./models/forgotPassModel')
 const cors = require('cors')
 
 const app = express();
@@ -24,11 +24,19 @@ const loginRoutes =  require('./routes/login');
 
 const expenseRoutes = require('./routes/expenseRoutes');
 
+const premiumRoutes = require('./routes/premiumRoutes');
+
+const forgotPassRoutes = require('./routes/forgotPassRoutes')
+
 app.use('/user',signUpRoutes);
 
 app.use('/user',loginRoutes);
 
 app.use('/expense',expenseRoutes);
+
+app.use('/premium',premiumRoutes);
+
+app.use('/password',forgotPassRoutes)
 
 Expense.belongsTo(User)
 User.hasMany(Expense);
