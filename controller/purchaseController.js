@@ -30,7 +30,7 @@ exports.purchasePremium = async (req,res) => {
         })
 
     }catch(err){
-        console.log('ERR__purchaseController_purchaePremium')
+        console.log('ERR__purchaseController_purchaepremium')
         res.status(403).json({message:'something went wrong PURCHASECONTROLLER_PURCHASEPREMIUM'})    
         console.log(err)
     }
