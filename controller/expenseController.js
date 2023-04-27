@@ -15,14 +15,17 @@ exports.getExpenses = async (req,res) => {
         console.log("OOOOOOO",itemsPerPage)
         
         const download = await UserService.getDownloadHistory(req)
-        const expense= await req.user.getExpenses()
+        // const expense= await req.user.getExpenses()
         const user= await req.user
         let expenseCount = await Expense.count({where:{userId:user.id}})
-        console.log(expenseCount)
-        const expenseToBeDisplayed =await Expense.findAll({
+        
+        const expenseToBeDisplayed = await req.user.getExpenses({
             offset: (page-1)*itemsPerPage,
-            limit:itemsPerPage
-        },{where:{userId:user.id}})
+            limit:itemsPerPage,
+        });
+        
+        console.log(">>>>>>",expenseToBeDisplayed);
+        console.log(user.id)
         
         return res.status(200).json({expenseData: expenseToBeDisplayed,
             premium:user.premiumUser,
@@ -118,7 +121,7 @@ exports.downloadExpense = async (req,res) =>{
 
         res.status(200).json({success:true,fileURL:fileURL,downloaded:download})
     }catch(err){
-        console.log("ERR Download_expense",err)
+        console.log("ERR Download_Expense",err)
         res.status(500).json({success:false,Error:err})
         throw new Error(JSON.stringify(err))
 

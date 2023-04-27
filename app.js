@@ -1,6 +1,9 @@
 const express = require("express");
-// const path = require('path');
+const path = require('path');
 const bodyParser = require('body-parser')
+
+const morgan = require('morgan');
+const helmet = require("helmet");
 
 const User = require('./models/user')
 const Expense = require('./models/expenseModel')
@@ -9,7 +12,9 @@ const ForgotPass =require('./models/forgotPassModel')
 const cors = require('cors')
 
 const app = express();
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(helmet());
 
 app.use(cors());
 

@@ -3,7 +3,11 @@ const User = require('../models/user')
 
 const bcrypt = require('bcrypt')
 
-exports.postLoginUser =async (req,res) => {
+function generateToken(id, name){
+    return jwt.sign({userId:id,userName:name},process.env.SECRET_TOKEN)
+}
+
+exports.postLoginUser =async (req,res,next) => {
     try{
         const email = req.body.email;
         const password = req.body.password;
@@ -13,14 +17,15 @@ exports.postLoginUser =async (req,res) => {
         if(data.length>0){
                 
             bcrypt.compare(password, data[0].password,(err,resp)=>{
-                console.log(err)
-                console.log(resp)
+                
                 if(err){
                     throw new Error('ERR_PASS_AUTH Something went wrong');
                 }
                 if(resp===true){
-                    console.log(resp)
-                    res.status(201).json({success:resp,message:'User login successful'})
+                    
+                    res.status(201).json({success:resp,message:'User login successful', token:generateToken(data[0].id,data[0].name)})
+                    
+        
                 }
                 else{
                     res.status(401).json({success:false,message:'Incorrect Password'});
