@@ -1,5 +1,5 @@
 const express = require("express");
-const path = require('path');
+// const path = require('path');
 const bodyParser = require('body-parser')
 
 const User = require('./models/user')
@@ -9,7 +9,7 @@ const ForgotPass =require('./models/forgotPassModel')
 const cors = require('cors')
 
 const app = express();
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(cors());
 

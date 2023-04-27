@@ -118,7 +118,7 @@ exports.downloadExpense = async (req,res) =>{
 
         res.status(200).json({success:true,fileURL:fileURL,downloaded:download})
     }catch(err){
-        console.log("ERR Download_Expense",err)
+        console.log("ERR Download_expense",err)
         res.status(500).json({success:false,Error:err})
         throw new Error(JSON.stringify(err))
 
